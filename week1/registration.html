@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+    <style>
+        body{
+            background-color: lightgray;
+        }
+        form{
+            background-color: lightsteelblue;
+            margin-left: 200px;
+            margin-right: 600px;
+            margin-top: 70px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        fieldset{
+            border: black solid;
+        }
+        legend{
+            font-size: 25px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+        }
+    </style>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Create your account</legend>
+        <input type="text" id="fname" required placeholder="First Name" />
+        <input
+          type="text"
+          id="lname"
+          required
+          placeholder="Last Name"
+        /><br /><br />
+        <span>Gender: </span>
+        <input type="radio" id="Male" name="gender" required value="Male" />
+        <label for="Male">Male</label>
+        <input type="radio" id="Female" name="gender" required value="Female" />
+        <label for="Female">Female</label><br /><br />
+        <label for="dob">Date of birth:</label>
+        <input type="date" id="dob" required /><br /><br />
+        <input type="email" id="email" placeholder="Email" required>
+        <input
+          type="text"
+          id="username"
+          required
+          placeholder="Username"
+        /><br /><br />
+        <input type="password" id="password" required placeholder="Password" />
+        <input
+          type="password"
+          id="confirmpassword"
+          required
+          placeholder="Confirm"
+        /><br /><br />
+        <textarea
+          id="address"
+          name="address"
+          rows="3"
+          cols="20"
+          maxlength="60"
+          placeholder="Address"
+        ></textarea
+        ><br /><br />
+        <input required type="text" id="postalcode" placeholder="postalcode" maxlength="6">
+        <input required type="tel" id="number" placeholder="mobile number" pattern="[0-9]{10}"><br><br>
+        <input type="submit" value="Register" />
+      </fieldset>
+    </form>
+  </body>
+</html>
