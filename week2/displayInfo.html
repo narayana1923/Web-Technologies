@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>Employee Information</title>
+    <style>
+      table,
+      td,
+      th {
+        border: 1px solid white;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+      body{
+          background-color: lightgrey;
+      }
+      table{
+          margin-left: 25%;
+          margin-top: 5%;
+          background-color: black;
+          color: white;
+      }
+      caption{
+          font-size: larger;
+          color: black;
+          margin-left: -50%;
+          padding: 5px;
+          font-family: Arial, Helvetica, sans-serif;
+          text-shadow: 1px 1px yellow;
+      }
+    </style>
+    <script>
+      function empInfo() {
+        if (typeof Storage !== "undefined") {
+          if (openDatabase) {
+            var database = openDatabase(
+              "Employee Database",
+              "1.0",
+              "This database contains employee information",
+              2 * 512 * 512
+            );
+            database.transaction(function (tx) {
+              var tid = document.getElementById("empTable");
+              tx.executeSql("SELECT * FROM EMP", [], function (tx, result) {
+                for (var i = 0; i < result.rows.length; i++) {
+                  var item = result.rows.item(i);
+                  var empid = item["empid"];
+                  var name = item["name"];
+                  var dept = item["department"];
+                  var salary = item["salary"];
+                  var address = item["address"];
+                  tid.innerHTML += `<tr><td>${empid}</td><td>${name}</td><td>${dept}</td><td>${salary}</td><td>${address}</td></tr>`;
+                }
+              });
+            });
+          } else {
+            alert("Unable to open websql database");
+          }
+        } else {
+          alert("storage is not defined");
+        }
+      }
+    </script>
+  </head>
+  <body onload="empInfo()">
+    <table id="empTable">
+        <caption>Employee Information</caption>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Address</th>
+      </tr>
+    </table>
+  </body>
+</html>

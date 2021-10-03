@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <title>SQL Database</title>
+    <script>
+      function saveinfo() {
+        var empName = document.getElementById("name").value;
+        var empId = document.getElementById("empid").value;
+        var empDept = document.getElementById("dept").value;
+        var empSalary = Number(document.getElementById("salary").value);
+        var empAddress = document.getElementById("address").value;
+        if (typeof Storage !== "undefined") {
+          if (openDatabase) {
+            var database = openDatabase(
+              "Employee Database",
+              "1.0",
+              "This database contains employee information",
+              2 * 512 * 512
+            );
+            database.transaction(function (tx) {
+              tx.executeSql(
+                "CREATE TABLE EMP(empid text primary key, name text, department text, salary real, address text)"
+              );
+            });
+            if (!isNaN(empSalary)) {
+              database.transaction(function (tx) {
+                tx.executeSql("INSERT INTO EMP VALUES(?,?,?,?,?)", [
+                  empId,
+                  empName,
+                  empDept,
+                  empSalary,
+                  empAddress,
+                ]);
+                location.replace("displayInfo.html");
+              });
+            }
+          } else {
+            alert("Open database allowed");
+          }
+        } else {
+          alert("No Storage");
+        }
+      }
+    </script>
+    <style>
+      form {
+        width: 20%;
+        margin-left: 40%;
+        margin-top: 8%;
+        color: white;
+        background-color: black;
+      }
+      input, textarea{
+          background-color: rgb(228, 227, 227);
+      }
+      input::placeholder, textarea::placeholder{
+          color: rgb(71, 71, 71);
+          font-size: 13px;
+          font-family: Arial, Helvetica, sans-serif;
+      }
+      body{
+          background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <form>
+        <fieldset>
+          <legend>Employee Information</legend>
+          <input
+            type="text"
+            id="name"
+            required
+            placeholder="Name"
+          /><br /><br />
+          <input
+            type="text"
+            id="empid"
+            required
+            placeholder="Emp id"
+          /><br /><br />
+          <label for="dept">Department : </label>
+          <select id="dept">
+            <option>CSE</option>
+            <option selected>CSSE</option>
+            <option>ECE</option>
+            <option>EEE</option>
+            <option>EIE</option>
+            <option>MECH</option></select
+          ><br /><br />
+          <input
+            type="text"
+            id="salary"
+            required
+            placeholder="salary"
+            pattern="[0-9]*[\.]?[0-9]*"
+          /><br /><br />
+          <textarea
+            name="address"
+            id="address"
+            cols="21"
+            rows="4"
+            placeholder="Address"
+          ></textarea
+          ><br /><br />
+          <input
+            type="submit"
+            id="Register"
+            value="register"
+            onclick="saveinfo()"
+          />
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

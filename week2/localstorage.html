@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>Login Page</title>
+    <style>
+      body {
+        background-color: lightgray;
+        color: darkorange;
+      }
+      h1 {
+        margin-left: 430px;
+        font-size: 300%;
+        font-family: sans-serif;
+        text-shadow: 2px 2px black;
+      }
+      form {
+        margin-right: 1450px;
+        margin-left: 500px;
+      }
+      fieldset {
+        height: 200px;
+        width: 250px;
+        border: 2px dotted black;
+      }
+      legend {
+        font-size: 25px;
+        color: red;
+        font-family: sans-serif;
+        text-shadow: 1px 1px black;
+      }
+    </style>
+    <script>
+        function getinfo(){
+            username = document.getElementById("uname").value;
+            password = document.getElementById("pswd").value;
+            if(typeof(Storage)!=="undefined"){
+                localStorage.setItem('username',username);
+                localStorage.setItem('password',password);
+                alert('successfully saved');
+            }
+        }
+    </script>
+  </head>
+  <body>
+    <br />
+    <h1>Login to your account</h1>
+    <br />
+    <form >
+      <fieldset>
+        <legend>Login</legend>
+        <br />
+        <input
+          required
+          style="height: 30px; width: 250px"
+          type="text"
+          id="uname"
+          name="uname"
+          placeholder="Enter username"
+        /><br /><br />
+        <input
+          required
+          style="height: 30px; width: 250px"
+          type="password"
+          id="pswd"
+          name="pswd"
+          placeholder="Enter password"
+        /><br /><br /><br />
+        <input
+          style="height: 30px; width: 100px; margin-left: 55px"
+          type="submit"
+          id="sub"
+          name="sub"
+          value="submit"
+          onclick="getinfo()"
+        />
+      </fieldset>
+    </form>
+  </body>
+</html>
