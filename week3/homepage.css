@@ -1,0 +1,108 @@
+body {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZCHsjmVyHG-DlFNdRuFgHUSJZCGYcAGhBOQ&usqp=CAU");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+  }
+  .headTop img {
+    width: 12%;
+    height: 22%;
+    margin-left: 10px;
+  }
+  .headTop h3 {
+    text-align: center;
+    margin-top: -110px;
+    font-size: 90px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: orange;
+    text-shadow: black 2px 2px;
+    text-transform: capitalize;
+  }
+  .navbar {
+    margin-top: -4%;
+  }
+  .navbar span {
+    padding-left: 9%;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .context {
+    border-collapse: collapse;
+    border: 1px black solid;
+  }
+  .leftContext {
+    border-collapse: collapse;
+    border-right: 1px black solid;
+    float: left;
+    width: 20%;
+    height: 69%;
+  }
+  .leftContext li {
+    font-size: 30px;
+    padding: 8%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .rightContext iframe {
+    width: 50%;
+    height: 64%;
+    border: 2px black dashed;
+    margin: 1%;
+  }
+  .login{
+      border-left: 1px black solid;
+      width: 20%;
+      height: 69%;
+      float: right;
+      margin-top: -31.6%;
+      margin-right: 7.5%;
+  }
+  .login form{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30%;
+  }
+  #username, #password{
+    height: 10%;
+    width: 150%;
+    border: 2px black solid;
+    
+  }
+  .login h3{
+    font-style: italic;
+    font-size: 25px;
+    font-weight: normal;
+    text-indent: 10px;
+  }
+  #signin{
+    margin-left: 43%;
+    width: 50%;
+    height: 7%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  #username,#password::placeholder{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  #signup{
+    margin-left: 25%;
+    margin-top: 2%;
+    height: 7%;
+    width: 80%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  .linker:visited{
+    color: red;
+  }
+  .linker:active{
+    color: green;
+  }
+  .linker:hover{
+    color: blue;
+    font-size: 40px;
+  }
