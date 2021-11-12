@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+    <link rel="stylesheet" href="registration.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      function checkName(ele) {
+        var elem = $(`#${ele}`).val();
+        if (elem.length == 0) {
+          $(`.${ele}-alert`).html("*Enter Your First Name");
+          
+        }
+        else if(elem.length<8){
+          $(`.${ele}-alert`).html("*Length should atleast be 8 characters");
+        }
+        else{
+          return true;
+        }
+        $(`.${ele}-alert`).css("visibility", "visible");
+        return false;
+      }
+      $(document).ready(function () {
+        $("form").submit(function (e) {
+          e.preventDefault();
+          var gender = $('input[type="radio"]').length;
+          var dob = Date.parse($("#dob").val());
+          var fname = checkName('fname');
+          var lname = checkName('lname');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Create your account</legend>
+        <input type="text" name="fname" id="fname" placeholder="First Name" />
+        <input
+          type="text"
+          id="lname"
+          name="lname"
+          placeholder="Last Name"
+        /><br /><br />
+        <span class="alerter fname-alert">*First name is invalid</span>
+        <span class="alerter lname-alert">*Last name is invalid</span><br />
+        <span>Gender: </span>
+        <input type="radio" id="Male" name="gender" value="Male" />
+        <label for="Male">Male</label>
+        <input type="radio" id="Female" name="gender" value="Female" />
+        <label for="Female">Female</label>
+        <span class="alerter radio-alert">*Choose your gender</span>
+        <br /><br />
+        <label for="dob">Date of birth:</label>
+        <input type="text" id="dob" placeholder="MM/DD/YYYY" />
+        <span class="alerter dob-alert">*Enter a valid date</span>
+        <br /><br />
+        <input type="email" id="email" placeholder="Email" name="email" />
+        <input type="text" id="username" placeholder="Username" /><br /><br />
+        <span class="alerter email-alert">*Enter a valid email</span>
+        <span class="alerter uname-alert">*Enter a valid email</span><br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+        />
+        <input
+          type="password"
+          id="confirmpassword"
+          name="confirmpassword"
+          placeholder="Confirm Password"
+        /><br /><br />
+        <span class="alerter pswd-alert">*Enter a valid password</span>
+        <span class="alerter cnfrm-alert">*Passwords don't match</span><br />
+        <textarea
+          id="address"
+          name="address"
+          rows="3"
+          cols="20"
+          maxlength="60"
+          placeholder="Address"
+        ></textarea
+        ><br /><br />
+        <input type="text" id="postalcode" placeholder="postal code" />
+        <input type="tel" id="number" placeholder="mobile number" /><br /><br />
+        <span class="alerter post-alert">*Enter a valid code</span>
+        <span class="alerter num-alert">*Enter a valid number</span><br />
+        <input type="submit" value="Register" />
+      </fieldset>
+    </form>
+    <script></script>
+  </body>
+</html>

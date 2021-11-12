@@ -1,0 +1,50 @@
+body {
+  background-color: lightgray;
+}
+form {
+  background-color: lightsteelblue;
+  margin-left: 200px;
+  margin-right: 600px;
+  margin-top: 70px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+fieldset {
+  border: black solid;
+}
+legend {
+  font-size: 25px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+}
+textarea {
+  resize: none;
+}
+.alerter {
+  visibility: hidden;
+  position: relative;
+  color: red;
+  font-family: "Times New Roman", Times, serif;
+  font-size: smaller;
+}
+.fname-alert,
+.email.alert,
+.pswd-alert,
+.post-alert {
+  top: -18px;
+  left: 2px;
+}
+.lname-alert,
+.uname-alert,
+.cnfrm-alert,
+.num-alert {
+  top: -18px;
+  left: 60px;
+}
+.radio-alert {
+  left: 20px;
+  font-size: medium;
+}
+.dob-alert {
+  font-size: medium;
+  left: 10px;
+}
