@@ -4,31 +4,83 @@
     <title>Register</title>
     <link rel="stylesheet" href="registration.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="registration.js"></script>
     <script>
-      function checkName(ele) {
+      function checkDOB() {
+        var d = Date.parse($("#dob").val());
+        if (isNaN(d)) {
+          $(".dob-alert").css("visibility", "visible");
+          return false;
+        } else {
+          $(".dob-alert").css("visibility", "hidden");
+          return true;
+        }
+      }
+      function checkPswd(ele,name) {
         var elem = $(`#${ele}`).val();
         if (elem.length == 0) {
-          $(`.${ele}-alert`).html("*Enter Your First Name");
-          
-        }
-        else if(elem.length<8){
+          $(`.${ele}-alert`).html(`*Enter Your ${name}`);
+        } else if (elem.length < 8) {
           $(`.${ele}-alert`).html("*Length should atleast be 8 characters");
         }
-        else{
+        else {
+          $(`.${ele}-alert`).css("visibility", "hidden");
           return true;
         }
         $(`.${ele}-alert`).css("visibility", "visible");
         return false;
       }
-      $(document).ready(function () {
-        $("form").submit(function (e) {
-          e.preventDefault();
-          var gender = $('input[type="radio"]').length;
-          var dob = Date.parse($("#dob").val());
-          var fname = checkName('fname');
-          var lname = checkName('lname');
-        });
-      });
+      function checkCnfrm(){
+        if($('#pswd').val() == $('#cnfrm').val()) {
+          $(`.$cnfrm-alert`).css("visibility", "hidden");
+          return true;
+        }
+        else{
+          $(`.cnfrm-alert`).html("*passwords don't match");
+          $(`.cnfrm-alert`).css("visibility", "visible");
+          return false;
+        }
+      }
+      function checkPost(){
+        var postVal = $('#post').val();
+        if(postVal.length ==0){
+          $(`.post-alert`).html(`*Enter postal code`);
+        }
+        else if(postVal.length!=6){
+          $(`.post-alert`).html(`*Length should be 6`);
+        }else{
+          $(`.post-alert`).css('visibility','hidden');
+          return true;
+        }
+        $(`.post-alert`).css('visibility','visible');
+        return false;
+      }
+      function checkNum(){
+        var postVal = $('#num').val();
+        if(postVal.length ==0){
+          $(`.num-alert`).html(`*Enter mobile number`);
+        }
+        else if(postVal.length!=10){
+          $(`.num-alert`).html(`*Length should be 10`);
+        }else{
+          $(`.num-alert`).css('visibility','hidden');
+          return true;
+        }
+        $(`.num-alert`).css('visibility','visible');
+        return false;
+      }
+      function checker() {
+        var firstName = checkName("fname", "First name");
+        var lastName = checkName("lname", "Last name");
+        var gen = checkGender();
+        var dateOfBirth = checkDOB();
+        var pswd = checkPswd("pswd", "Password");
+        var cnfrm = checkPswd("cnfrm","Password") && checkCnfrm();
+        var post = checkPost();
+        var num = checkNum();
+        alert(post);
+        return firstName && lastName && gen && dateOfBirth && pswd && cnfrm && post && num;
+      }
     </script>
   </head>
   <body>
@@ -61,13 +113,13 @@
         <span class="alerter uname-alert">*Enter a valid email</span><br />
         <input
           type="password"
-          id="password"
+          id="pswd"
           name="password"
           placeholder="Password"
         />
         <input
           type="password"
-          id="confirmpassword"
+          id="cnfrm"
           name="confirmpassword"
           placeholder="Confirm Password"
         /><br /><br />
@@ -82,8 +134,8 @@
           placeholder="Address"
         ></textarea
         ><br /><br />
-        <input type="text" id="postalcode" placeholder="postal code" />
-        <input type="tel" id="number" placeholder="mobile number" /><br /><br />
+        <input type="text" id="post" placeholder="postal code" />
+        <input type="text" id="num" placeholder="mobile number" /><br /><br />
         <span class="alerter post-alert">*Enter a valid code</span>
         <span class="alerter num-alert">*Enter a valid number</span><br />
         <input type="submit" value="Register" />
