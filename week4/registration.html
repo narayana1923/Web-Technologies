@@ -5,83 +5,6 @@
     <link rel="stylesheet" href="registration.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="registration.js"></script>
-    <script>
-      function checkDOB() {
-        var d = Date.parse($("#dob").val());
-        if (isNaN(d)) {
-          $(".dob-alert").css("visibility", "visible");
-          return false;
-        } else {
-          $(".dob-alert").css("visibility", "hidden");
-          return true;
-        }
-      }
-      function checkPswd(ele,name) {
-        var elem = $(`#${ele}`).val();
-        if (elem.length == 0) {
-          $(`.${ele}-alert`).html(`*Enter Your ${name}`);
-        } else if (elem.length < 8) {
-          $(`.${ele}-alert`).html("*Length should atleast be 8 characters");
-        }
-        else {
-          $(`.${ele}-alert`).css("visibility", "hidden");
-          return true;
-        }
-        $(`.${ele}-alert`).css("visibility", "visible");
-        return false;
-      }
-      function checkCnfrm(){
-        if($('#pswd').val() == $('#cnfrm').val()) {
-          $(`.$cnfrm-alert`).css("visibility", "hidden");
-          return true;
-        }
-        else{
-          $(`.cnfrm-alert`).html("*passwords don't match");
-          $(`.cnfrm-alert`).css("visibility", "visible");
-          return false;
-        }
-      }
-      function checkPost(){
-        var postVal = $('#post').val();
-        if(postVal.length ==0){
-          $(`.post-alert`).html(`*Enter postal code`);
-        }
-        else if(postVal.length!=6){
-          $(`.post-alert`).html(`*Length should be 6`);
-        }else{
-          $(`.post-alert`).css('visibility','hidden');
-          return true;
-        }
-        $(`.post-alert`).css('visibility','visible');
-        return false;
-      }
-      function checkNum(){
-        var postVal = $('#num').val();
-        if(postVal.length ==0){
-          $(`.num-alert`).html(`*Enter mobile number`);
-        }
-        else if(postVal.length!=10){
-          $(`.num-alert`).html(`*Length should be 10`);
-        }else{
-          $(`.num-alert`).css('visibility','hidden');
-          return true;
-        }
-        $(`.num-alert`).css('visibility','visible');
-        return false;
-      }
-      function checker() {
-        var firstName = checkName("fname", "First name");
-        var lastName = checkName("lname", "Last name");
-        var gen = checkGender();
-        var dateOfBirth = checkDOB();
-        var pswd = checkPswd("pswd", "Password");
-        var cnfrm = checkPswd("cnfrm","Password") && checkCnfrm();
-        var post = checkPost();
-        var num = checkNum();
-        alert(post);
-        return firstName && lastName && gen && dateOfBirth && pswd && cnfrm && post && num;
-      }
-    </script>
   </head>
   <body>
     <form>
@@ -107,18 +30,18 @@
         <input type="text" id="dob" placeholder="MM/DD/YYYY" />
         <span class="alerter dob-alert">*Enter a valid date</span>
         <br /><br />
-        <input type="email" id="email" placeholder="Email" name="email" />
-        <input type="text" id="username" placeholder="Username" /><br /><br />
+        <input type="text" id="email" placeholder="Email" name="email" />
+        <input type="text" id="uname" placeholder="Username" /><br /><br />
         <span class="alerter email-alert">*Enter a valid email</span>
-        <span class="alerter uname-alert">*Enter a valid email</span><br />
+        <span class="alerter uname-alert">*Enter a valid username</span><br />
         <input
-          type="password"
+          type="test"
           id="pswd"
           name="password"
           placeholder="Password"
         />
         <input
-          type="password"
+          type="text"
           id="cnfrm"
           name="confirmpassword"
           placeholder="Confirm Password"

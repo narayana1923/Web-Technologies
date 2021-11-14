@@ -27,18 +27,24 @@ textarea {
   font-size: smaller;
 }
 .fname-alert,
-.email.alert,
 .pswd-alert,
 .post-alert {
   top: -18px;
   left: 2px;
 }
 .lname-alert,
-.uname-alert,
 .cnfrm-alert,
 .num-alert {
   top: -18px;
   left: 60px;
+}
+.email-alert{
+  left: 2px;
+  top: -20px;
+}
+.uname-alert{
+  top: -55px;
+  left: 85px;
 }
 .radio-alert {
   left: 20px;
