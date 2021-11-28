@@ -2,76 +2,18 @@
   <head>
     <title>Animations</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="index.js"></script>
-    <style>
-      body {
-        background-color: lightgray;
-      }
-      .header {
-        height: 150px;
-      }
-      img {
-        float: left;
-      }
-      span {
-        float: left;
-        font-size: 80px;
-        margin-left: 10%;
-        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-      }
-      .main-video {
-        float: left;
-        margin-left: 20px;
-        margin-right: 40px;
-      }
-      .video-list {
-        float: left;
-        margin-top: 25px;
-      }
-      .video-list video:hover {
-        border: 3px coral solid;
-      }
-      .video-list > span {
-        margin-left: 40px;
-      }
-      figcaption {
-        font-size: 20px;
-      }
-      video {
-        border-radius: 10px;
-      }
-      .area {
-        height: 250px;
-        width: 250px;
-        background-color: blue;
-        margin-top: 16%;
-        margin-left: 1%;
-      }
-      button {
-        margin-top: 2%;
-        margin-left: 1%;
-        width: 300px;
-        height: 30px;
-        font-size: larger;
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      figcaption {
-        color: red;
-        font-size: 30px;
-        text-shadow: 2px 1px 1px black;
-      }
-    </style>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <div class="container">
       <div class="header">
-        <img src="video_gallery.jfif" alt="Tree" />
+        <img src="assets/video_gallery.jfif" alt="Tree" />
         <span id="vidSpan"> Video Gallery </span>
       </div>
       <div class="video-container">
         <div class="main-video">
           <video
-            src="video/flower.mp4"
+            src="assets/flower.mp4"
             id="videoTag"
             width="350px"
             height="200px"
@@ -82,7 +24,7 @@
         <div class="video-list">
           <span>
             <video
-              src="video/baby-turtle.mp4"
+              src="assets/baby-turtle.mp4"
               width="250px"
               height="150px"
               id="first-video"
@@ -92,7 +34,7 @@
           </span>
           <span>
             <video
-              src="video/flower.mp4"
+              src="assets/flower.mp4"
               width="250px"
               height="150px"
               id="second-video"
@@ -102,7 +44,7 @@
           </span>
           <span>
             <video
-              src="video/turtle-walking.mp4"
+              src="assets/turtle-walking.mp4"
               width="250px"
               height="150px"
               id="third-video"
@@ -115,24 +57,6 @@
       <div class="area"></div>
     </div>
     <button>Click Here to Show/Hide</button>
-    <script>
-      function showVideo(ele) {
-        $("#videoTag").attr("src", ele.getAttribute("src"));
-      }
-      var flag = false;
-      function animer() {
-        if (flag) {
-          $("img")
-            .animate({ width: "400px" ,height: "100px" }, "1000", "linear");
-          $("#vidSpan").animate({ fontSize: "70px" }, "fast");
-        } else {
-          $("img")
-            .animate({ width: "20px",height: "20px"  }, "1000", "linear");
-          $("#vidSpan").animate({ fontSize: "10px" }, "fast");
-        }
-        flag = !flag;
-      }
-      setInterval(animer, 1000);
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
