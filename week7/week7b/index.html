@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PHP POST</title>
+    <style>
+      form {
+        width: min-content;
+        margin-left: 40%;
+        margin-top: 10%;
+      }
+      input[type="color"] {
+        border-color: yellow;
+        background-color: aqua;
+      }
+      body{
+          background-color: lightgrey;
+      }
+      input[type="text"]{
+          height: 30px;
+          width: 250px;     
+      }
+      label{
+          font-size: 20px;
+      }
+      #name{
+          margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post" action="getData.php">
+      <fieldset>
+        <label id="labname" for="name">Username</label><br />
+        <input
+          type="text"
+          name="uname"
+          id="uname"
+          placeholder="Enter Username"
+        /><br /><br />
+        <label for="col">Favourite Color:</label>
+        <input type="color" name="col" id="col" /><br /><br />
+        <input type="submit" value="Set Color" />
+      </fieldset>
+    </form>
+  </body>
+</html>
