@@ -1,0 +1,28 @@
+input[type="text"], input[type="number"],input[type="file"]{
+    height: 30px;
+    width: 80%;
+    margin-left: 5%;
+}
+input[type="submit"]{
+    width: 25%;
+    height: 25px;
+    margin-left: 35%;
+    margin-bottom: 20px;
+}
+input::placeholder{
+    color: blueviolet;
+    opacity: 40%;
+    position: relative;
+    left: 5px;
+}
+form{
+    margin-left: 25%;
+    margin-top: 10%;
+    width: 50%;
+}
+#name{
+    margin-top: 25px;
+}
+fieldset{
+    border-color: lightblue;
+}
